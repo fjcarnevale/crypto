@@ -1,5 +1,26 @@
 
+class Alphabet:
+  
+  def __init__(self, alphabet):
+    self.alphabet = alphabet
+    self.reverse_alphabet = {v: k for k, v in self.alphabet.iteritems()}
 
+  def Encrypt(self, character):
+    if character in self.alphabet:
+      return self.alphabet[character]
+    else:
+      raise IndexError('Unknown character ' + character)
+
+  def Decrypt(self, character):
+    if character in reverse_alphabet:
+      return reverse_alphabet[character]
+    else:
+      raise KeyError('Unknown character ' + character)
+
+  @staticmethod
+  def RotationAlphabet(n):
+    return Alphabet({chr(i): chr(((i+1-96) % 26)+96) for i in range(97, 123)})
+  
 class Cipher:
 
   def __init__(self):
