@@ -37,6 +37,19 @@ def decipher(ciphertext, key, isFile = False):
   return ''.join([key[letter] if letter in key else letter for letter in ciphertext])
 
 
+def decipherRotation(ciphertext, rotation):
+  plaintext = ''
+  for letter in ciphertext.lower():
+    if letter in plainbet:
+      rotated = ord(letter) - rotation
+      if rotated < 97:
+        rotated += 26
+      plaintext += chr(rotated)
+    else:
+      plaintext += letter
+  return plaintext
+
+
 def remainingCipherbet(key):
   return [letter for letter in cipherbet if letter not in key]
 
